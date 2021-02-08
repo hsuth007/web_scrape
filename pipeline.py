@@ -17,9 +17,9 @@ def main():
 def extract():
     logger.info('Starting extract')
     for sports_news_site_uid in sports_news_sites_uids:
-        subprocess.run(['python', 'main.py', sports_news_site_uid], cwd='./extract')
+        subprocess.run(['python', 'main.py', sports_news_site_uid], cwd='./ext')
         subprocess.run(['find', '.', '-name', '{}*'.format(sports_news_site_uid),
-                        '-exec', 'mv', '{}', '../transform/{}_.csv'.format(sports_news_site_uid), ';'], cwd='./extract')
+                        '-exec', 'mv', '{}', '../trans/{}_.csv'.format(sports_news_site_uid), ';'], cwd='./ext')
 
 
 def transform():
@@ -27,9 +27,9 @@ def transform():
     for sports_news_site_uid in sports_news_sites_uids:
         dirty_data_filename = '{}_.csv'.format(sports_news_site_uid)
         clean_data_filename = 'clean_{}'.format(dirty_data_filename)
-        subprocess.run(['python', 'main.py', dirty_data_filename], cwd='./transform')
-        subprocess.run(['rm', dirty_data_filename], cwd='./transform')
-        subprocess.run(['cp', clean_data_filename, '../load/{}.csv'.format(sports_news_site_uid)], cwd='./transform')
+        subprocess.run(['python', 'main.py', dirty_data_filename], cwd='./trans')
+        subprocess.run(['rm', dirty_data_filename], cwd='./trans')
+        subprocess.run(['cp', clean_data_filename, '../load/{}.csv'.format(sports_news_site_uid)], cwd='./trans')
 
 
 def load():
