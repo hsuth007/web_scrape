@@ -1,0 +1,13 @@
+sports_news_sites:
+  nbcsports:
+    url: https://www.nbcsports.com/
+    queries:
+      homepage_article_links: '.link a'
+      article_body: '.story__text'
+      article_title: 'story__title h3'
+    espn:
+      url: https://www.espn.com/
+      queries:
+        homepage_article_links: '.contentItem a'
+        article_body: 'contentItem__subhead'
+        article_title: '.contentItem__title h1'

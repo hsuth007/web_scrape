@@ -1,0 +1,8 @@
+sqlalchemy
+beautifulsoup4
+matplotlib
+numpy
+pandas
+requests
+pyYAML
+nltk
